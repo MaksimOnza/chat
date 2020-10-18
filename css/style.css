@@ -40,6 +40,8 @@
 ._messages{
     float: left;
     width: 70%;
+    overflow: scroll;
+    text-align: left;
 }
 ._users{
     position: relative;

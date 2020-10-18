@@ -5,48 +5,61 @@
 
     //var fd = window.setInterval(timer, 3000);
 
-    function timer(){
-        sendAjaxForm('index.php?path=get_messages');
-    }
+    /*function timer(){
+        //sendAjaxForm('index.php?path=get_messages');
+    }*/
 
     $(document).ready(function () {
+
         $("#chat_send").click(
             function () {
-                sendAjaxForm2('message', 'chat_messages', 'index.php?path=send_message');
+                getAjaxForm('index.php?path=send_message');
+  //              sendAjaxForm('message', 'chat_messages', 'index.php?path=send_message');
                 return false;
             }
         );
-    });
+    /*});
 
-    $(document).ready(function () {
+    $(document).ready(function () {*/
         $("#reload_mess").click(
             function () {
-                sendAjaxForm('index.php?path=get_messages');
+                getAjaxForm('index.php?path=get_messages');
                 return false;
             }
         );
     });
 
 
-    function sendAjaxForm(/*input_elem, output_elem, */url_action){
-        /*var chat_message = document.getElementById(input_elem).value;
-        var current_time = new Date().getTime();
-        var user_id = 1;*/
-        $.ajax({
+    function getAjaxForm(url_action){
+        /*$.ajax({
             url: url_action,
-            type: "POST",
-            dataType: "jsond",
-            data: {/*'id_user': user_id, 'message': chat_message, 'current_time': current_time*/},
+            type: "POST",/!*
+            dataType: "json",*!/
+            data: {/!*'id_user': user_id, 'message': chat_message, 'current_time': current_time*!/},
             success: function (response) {
-                $('#chat_messages').html(response);
+                $('#_messages').html(response);
+                /!*var ar = JSON.parse(response);
+                $('#_messages').html(ar);
+                //alert(ar['message']);
+                var index = 'message';
+                ar.forEach(entry, index, ar){
+                    alert(ar[]);
+                }*!/
             },
             error: function (response) {
-                $('#chat_messages').html('Ошибка. Данные не отправлены. 1');
+                $('#_messages').html('Ошибка. Данные не отправлены. 1'+typeof (response));
             }
-        });
+        });*/
+        $( "#_messages" ).load( "index.php?path=get_messages")/*, function( response, status, xhr ) {
+            $('#_messages').innerText = response;*/
+            /*document.write( response); // строка соответствующая данным, присланным от сервера
+            document.write( status ); // строка соответствующая статусу запроса
+            document.write( xhr.status ); // числовой код состояния ответа от сервера
+            document.write( xhr.statusText ); // сообщение о состоянии ответа
+        })*/
     }
 
-    function sendAjaxForm2(input_elem, output_elem, url_action){
+    function sendAjaxForm(input_elem, output_elem, url_action){
         var chat_message = document.getElementById(input_elem).value;
         var current_time = new Date().getTime();
         var user = 'maks';
@@ -55,14 +68,13 @@
         $.ajax({
             url: url_action,
             type: "POST",
-            dataType: "html",
+            dataType: "jsond",
             data: {'user': user, 'message': chat_message, 'current_time': current_time},
             success: function (response) {
-                $('#out_message').html(response);
-                typeof(response);
+                //$('#_users').html(response);
             },
             error: function (response) {
-                $('#result_form1').html('Ошибка. Данные не отправлены.');
+                $('#_users').html('Ошибка. Данные не отправлены.');
             }
         });
     }
