@@ -1,75 +1,88 @@
-/****************************/
-
-._chat{
-    margin-top: 100px ;
-    background-color: coral;
+#chat_header{
+    /*margin: auto;*/
+}
+body{
+    /*margin-top: 50px;*/
+}
+.container{
+    background-color: #d0fff4;
+    margin-top: 50px;
     border-radius: 10px;
-    border: 5px groove cadetblue;
-    text-align: center;
-    padding-bottom: 20px;
-    position: relative;
+    border: 3px solid #6dd7ff;
     height: 550px;
 }
-._get_mess{
-    position: relative;
-    left: 45px;
+#title{
+    width: 200px;
+    margin: auto;
+    text-align: center;
 }
-._data{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
+#chat_content{
+    height: 70%;
 }
-._data > div{
-    background-color: azure;
-    border-radius: 10px;
-    border: 5px groove cadetblue;
-    height: 330px;
-    text-align: left;
-}
-._head_chat{
-    margin: 10px;
-}
-._head_chat > div{
-    border-radius: 10px;
-    border: 5px groove cadetblue;
-}
-._login{
-    width: 100px;
+#d_messages{
+    background-color: white;
     float: left;
-}
-._messages{
-    float: left;
+    height: 100%;
     width: 70%;
-    overflow: scroll;
-    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #6dd7ff;
 }
-._users{
+#d_users{
+    background-color: white;
+    float: right;
+    height: 100%;
+    width: 20%;
+    border-radius: 10px;
+    border: 1px solid #6dd7ff;
+}
+#_send{
     position: relative;
-    right: 0;
+    height: 50px;
+    margin-top: 30px;
+    /*border: 3px solid #6dd7ff;*/
+}
+#s_input{
+    width: 70%;
+    float: left;
+    border: 1px solid #6dd7ff;
+}
+#s_btn{
     width: 20%;
     float: right;
+    border: 1px solid #6dd7ff;
 }
-._sender{
-    position: relative;
-    margin-right: 100px;
-    margin-left: 10px;
+#smiles{
+    margin-bottom: -5px;
+    display: inline-block;
 }
-._sender > div{
+#hide{
+    display: none;
+    margin: 5px;
+    top: -5px;
+    left: 65%;
+    height: 70px;
+    width: 150px;
     border-radius: 10px;
-    border: 5px groove cadetblue;
-    bottom: 10px;
+    border: 1px solid #6dd7ff;
+    background-color: #f2d3ff;
     position: absolute;
 }
-._send_mess{
-    margin-top: 5px;
-    background-color: azure;
-    left: 10px;
-    width: 70%;
-    float: left;
+#smiles:hover #hide{
+    display: block;
 }
-._btn{
-    margin-top: 5px;
-    width: 20%;
-    float: right;
-    right: 50px;
+.smile{
+    margin: 3px;
+    border: 2px solid cornflowerblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+span #view_date{
+    background-color: antiquewhite;
+    font-size: 10px;
+}
+div #view_message{
+    margin: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid antiquewhite;
 }

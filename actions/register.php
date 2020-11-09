@@ -1,5 +1,6 @@
 <?php
-
+namespace Chat;
+use function Chat\db\query;
 
 $login = $_REQUEST['login'] ?? '';
 $last_activity = time() ?? '';

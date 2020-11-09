@@ -3,75 +3,76 @@
 <script src="/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
-    //var fd = window.setInterval(timer, 3000);
+    var fd = window.setInterval(timer, 2000);
 
-    /*function timer(){
-        //sendAjaxForm('index.php?path=get_messages');
-    }*/
+    function timer() {
+     //   getAjaxForm('index.php?path=get_messages');
+    }
 
     $(document).ready(function () {
+        $(".smile").click(function () {
+            var smilik = $(this).attr('alt');
+            var symb = $(this).attr('title');
+            var emojy = new Image();
+            emojy.src = '/media/smilies/' + smilik + '.gif';
+            //document.getElementById('s_input').appendChild(emojy);
+            document.getElementById('s_input').innerText += symb;
+            return false;
+        })
+    });
 
-        $("#chat_send").click(
+    $(document).ready(function () {
+        $("#s_btn").click(
             function () {
-                getAjaxForm('index.php?path=send_message');
-  //              sendAjaxForm('message', 'chat_messages', 'index.php?path=send_message');
+                sendAjaxForm('s_input', '_login', 'index.php?path=send_message');
                 return false;
             }
         );
-    /*});
 
-    $(document).ready(function () {*/
         $("#reload_mess").click(
             function () {
                 getAjaxForm('index.php?path=get_messages');
                 return false;
             }
-        );
+        )
     });
 
-
-    function getAjaxForm(url_action){
-        /*$.ajax({
+    function loginAjaxForm(url_action) {
+        $.ajax({
             url: url_action,
-            type: "POST",/!*
-            dataType: "json",*!/
-            data: {/!*'id_user': user_id, 'message': chat_message, 'current_time': current_time*!/},
-            success: function (response) {
-                $('#_messages').html(response);
-                /!*var ar = JSON.parse(response);
-                $('#_messages').html(ar);
-                //alert(ar['message']);
-                var index = 'message';
-                ar.forEach(entry, index, ar){
-                    alert(ar[]);
-                }*!/
-            },
-            error: function (response) {
-                $('#_messages').html('Ошибка. Данные не отправлены. 1'+typeof (response));
-            }
-        });*/
-        $( "#_messages" ).load( "index.php?path=get_messages")/*, function( response, status, xhr ) {
-            $('#_messages').innerText = response;*/
-            /*document.write( response); // строка соответствующая данным, присланным от сервера
-            document.write( status ); // строка соответствующая статусу запроса
-            document.write( xhr.status ); // числовой код состояния ответа от сервера
-            document.write( xhr.statusText ); // сообщение о состоянии ответа
-        })*/
+            type: 'POST',
+            dataType: 'html'
+        });
     }
 
-    function sendAjaxForm(input_elem, output_elem, url_action){
-        var chat_message = document.getElementById(input_elem).value;
+    function getAjaxForm(url_action) {
         var current_time = new Date().getTime();
-        var user = 'maks';
-//        var user = document.getElementById(in_name_user_elem).value;
+        $.ajax({
+            cache: false,
+            url: url_action,
+            type: 'POST',
+            dataType: 'html',
+            data: {'current_time': current_time},
+            success: function (response) {
+                $('#chat_content').html(response);
+            },
+            error: function (response) {
+                $('#d_messages').html('Ошибка. Данные не отправлены.');
+            }
+        });
+    }
 
+    function sendAjaxForm(input_elem, name_user, url_action) {
+        var chat_message = document.getElementById(input_elem).innerText;
+        var current_time = new Date().getTime();
+        var user = document.getElementById(name_user).value;
         $.ajax({
             url: url_action,
             type: "POST",
-            dataType: "jsond",
+            dataType: "html",
             data: {'user': user, 'message': chat_message, 'current_time': current_time},
             success: function (response) {
-                //$('#_users').html(response);
+                //$('#_message').html('df');
             },
             error: function (response) {
                 $('#_users').html('Ошибка. Данные не отправлены.');
@@ -79,7 +80,7 @@
         });
     }
 
+    //getAjaxForm('index.php?path=get_messages');
 </script>
-<!--<script src="/js/js_script.js"></script>-->
 </body>
 </html>

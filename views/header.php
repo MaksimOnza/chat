@@ -12,4 +12,4 @@
 </head>
 
 <body>
-<div class="container" align="center">
+<div class="container">

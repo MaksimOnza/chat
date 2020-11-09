@@ -1,8 +1,9 @@
 <?php
+namespace Chat\db;
 
 function open_db()
 {
-    return new \SQLite3('chat_sqlite_db.db');
+    return new \SQLite3('sqlite/chat_sqlite_db.db');
 }
 
 function query($query, $bind_values=[]){

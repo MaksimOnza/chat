@@ -2,9 +2,11 @@
 /**
  * @var $content string
  */
+
+use function Chat\render;
 ?>
 <?= render('header'); ?>
-<div class="container">
+
     <?= $content ?>
-</div>
+
 <?= render('footer'); ?>

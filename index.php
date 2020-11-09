@@ -1,13 +1,16 @@
 <?php
-ini_set('session.gc_maxlifetime', 86400);
+namespace Chat;
+
+ini_set('session.gc_maxlifetime', 600);
 ini_set('session.cookie_lifetime', 0);
 session_set_cookie_params(0);
 session_start();
 
 require_once("sqlite/db.php");
+require_once("constants/consts.php");
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', true);
+//ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', true);
 
 $errors = [];
 $path = $_REQUEST['path'];
@@ -18,6 +21,10 @@ $list_of_path = array(
     "get_users",
     "get_messages",
     "chat",
+);
+$list_of_exception = array(
+    "_data",
+    "get_messages"
 );
 
 function run_action($path, $list_of_path): string
@@ -36,6 +43,12 @@ function render($path, array $vars = []): string
     return $content;
 }
 
-$content = run_action($path, $list_of_path);
-$template = render('base_template', ['content' => $content]);
-print $template;
+
+if (!in_array($path, $list_of_exception)) {
+//if($path == 'get_messages'){
+    $content = run_action($path, $list_of_path);
+    $template = render('base_template', ['content' => $content]);
+    print $template;
+} else {
+    run_action($path, $list_of_path);
+}
