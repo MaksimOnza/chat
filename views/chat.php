@@ -10,22 +10,8 @@
     <div id="title">Simple chat <h5 id="_login"><?= $_SESSION['user_name'] ?></h5></div>
 </div>
 <div id="chat_content">
-    <div id="d_messages">
-        <?php
-        foreach ($messages as $message) {
-            print $message . '<br>';
-        }
-        ?>
-    </div>
-    <div id="d_users">
-        <?php
-        if ($users) {
-            foreach ($users as $user) {
-                print $user . '<br>';
-            }
-        }
-        ?>
-    </div>
+    <div id="d_messages" class="_messages "></div>
+    <div id="d_users" class="_users "></div>
 </div>
 <?php if (in_array($_SESSION['user_name'], $users)) {
     print '
@@ -47,4 +33,5 @@
     </div>';
 } ?>
 <input id="reload_mess" class="_get_mess btn btn-outline-secondary btn-light" type="button" name="send" value="Reload messegaes">
+<?php  print ($_SERVER['PHP_SELF'].' df'); ?>
 

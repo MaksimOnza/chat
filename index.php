@@ -1,4 +1,5 @@
 <?php
+
 namespace Chat;
 
 ini_set('session.gc_maxlifetime', 600);
@@ -24,7 +25,8 @@ $list_of_path = array(
 );
 $list_of_exception = array(
     "_data",
-    "get_messages"
+    "get_messages",
+    "get_users"
 );
 
 function run_action($path, $list_of_path): string

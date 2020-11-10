@@ -6,7 +6,7 @@
     var fd = window.setInterval(timer, 2000);
 
     function timer() {
-     //   getAjaxForm('index.php?path=get_messages');
+        //   getAjaxForm('index.php?path=get_messages');
     }
 
     $(document).ready(function () {
@@ -31,7 +31,9 @@
 
         $("#reload_mess").click(
             function () {
-                getAjaxForm('index.php?path=get_messages');
+                //getAjaxForm('index.php?path=get_messages');
+                getUserAjaxForm('index.php?path=get_users');
+                getMessageAjaxForm('index.php?path=get_messages');
                 return false;
             }
         )
@@ -54,13 +56,48 @@
             dataType: 'html',
             data: {'current_time': current_time},
             success: function (response) {
-                $('#chat_content').html(response);
+                $('#d_messages').html(response);
             },
             error: function (response) {
                 $('#d_messages').html('Ошибка. Данные не отправлены.');
             }
         });
     }
+
+    function getUserAjaxForm(url_action) {
+        var current_time = new Date().getTime();
+        $.ajax({
+            cache: false,
+            url: url_action,
+            type: 'POST',
+            dataType: 'html',
+            data: {'current_time': current_time},
+            success: function (response) {
+                $('#d_users').html(response);
+            },
+            error: function (response) {
+                $('#d_users').html('Ошибка. Данные не отправлены.');
+            }
+        });
+    }
+
+    function getMessageAjaxForm(url_action) {
+        var current_time = new Date().getTime();
+        $.ajax({
+            cache: false,
+            url: url_action,
+            type: 'POST',
+            dataType: 'html',
+            data: {'current_time': current_time},
+            success: function (response) {
+                $('#d_messages').html(response);
+            },
+            error: function (response) {
+                $('#d_messages').html('Ошибка. Данные не отправлены.');
+            }
+        });
+    }
+
 
     function sendAjaxForm(input_elem, name_user, url_action) {
         var chat_message = document.getElementById(input_elem).innerText;

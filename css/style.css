@@ -52,6 +52,7 @@ body{
     border: 1px solid #6dd7ff;
 }
 #smiles{
+    margin: 5px;
     margin-bottom: -5px;
     display: inline-block;
 }
@@ -71,12 +72,12 @@ body{
     display: block;
 }
 .smile{
-    margin: 3px;
-    border: 2px solid cornflowerblue;
+    margin: 2px;
+    border: 1px solid cornflowerblue;
     border-radius: 5px;
     cursor: pointer;
 }
-span #view_date{
+#view_date{
     background-color: antiquewhite;
     font-size: 10px;
 }

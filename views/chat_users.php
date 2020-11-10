@@ -1,1 +1,5 @@
-<div class="chat_users">chat_users</div>
+<?php
+foreach ($users as $user) {
+    print $user['name'] . '<br>';
+}
+?>

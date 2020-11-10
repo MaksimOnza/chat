@@ -1,5 +1,5 @@
 <?php
-const LIFE_TIMES = 3600000/60;
+const LIFE_TIMES = 3600000 / 10;
 const USER_ACTIVITY = 60000;
 const SESSION_ACTIVE = true;
 const EMOJY_ARRAY = array(
