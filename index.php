@@ -22,6 +22,7 @@ $list_of_path = array(
     "get_users",
     "get_messages",
     "chat",
+    "logout"
 );
 $list_of_exception = array(
     "_data",
@@ -47,7 +48,6 @@ function render($path, array $vars = []): string
 
 
 if (!in_array($path, $list_of_exception)) {
-//if($path == 'get_messages'){
     $content = run_action($path, $list_of_path);
     $template = render('base_template', ['content' => $content]);
     print $template;

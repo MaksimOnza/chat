@@ -87,3 +87,7 @@ div #view_message{
     border-radius: 5px;
     border: 2px solid antiquewhite;
 }
+#chat_login {
+    position: absolute;
+    display: inline;
+}

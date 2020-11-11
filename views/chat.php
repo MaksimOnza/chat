@@ -7,6 +7,15 @@
  */
 ?>
 <div id="chat_header">
+    <div id="chat_login">
+        <?php if (in_array($_SESSION['user_name'], $users)) { ?>
+        <form method="post" action="/index.php/?path=logout">
+            <a id="login" href="index.php/?path=logout">LogOut</a>
+        </form>
+        <?php }else{ ?>
+        <a id="login" href="index.php/?path=login">LogIn</a>
+        <?php } ?>
+    </div>
     <div id="title">Simple chat <h5 id="_login"><?= $_SESSION['user_name'] ?></h5></div>
 </div>
 <div id="chat_content">
