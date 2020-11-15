@@ -7,10 +7,8 @@ namespaces
 смайлики(по кодировке символов)
 удаление сообщений через 60 мин
 
-/*$("#hide").onclick(
-            function () {
-                var test = document.getElementById('test').value;
-                document.getElementById('_message').value = test;
-                return false;
-            }
-        );*/
+
+знак "&" перед "$" - ???????
+отключить обработку скриптов браузером
+сообщение в приватный чат через "/dm"
+почему JS возвращает весь HTML

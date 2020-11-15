@@ -3,12 +3,29 @@
 namespace Chat;
 
 use function Chat\db\query;
+use function Chat\db\query_select;
 
 $message = $_POST['message'];
 $current_time = $_POST['current_time'];
 $final_time = $current_time + LIFE_TIMES;
 $user = $_SESSION['user_name'];
 
+
+$users = query_select('SELECT name FROM users WHERE last_activity + '.USER_ACTIVITY.' > ' . $current_time);
+
+
+
+$first_pos = strpos($message, '/dm/');
+$end_pos = strpos($message, '/dm/%/');
+
+
+$pos = strpos($message, '/dm/');
+if ($pos === 0) {
+    preg_match( '/dm/%/', $message, $match );
+    if(in_array($user, $users)){
+        print 'хер моржовый';
+    }
+}
 $query = "INSERT INTO message_1(author, message, time_stamp, current_time) VALUES(?, ?, ?, ?)";
 query($query, array(1 => $user, $message, $final_time, $current_time));
 

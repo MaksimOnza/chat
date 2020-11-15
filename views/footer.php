@@ -98,7 +98,7 @@
             dataType: "html",
             data: {'user': user, 'message': chat_message, 'current_time': current_time},
             success: function (response) {
-                //$('#_message').html('df');
+                $('#d_users').html(response);
             },
             error: function (response) {
                 $('#_users').html('Ошибка. Данные не отправлены.');

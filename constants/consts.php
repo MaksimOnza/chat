@@ -2,7 +2,7 @@
 const LIFE_TIMES = 600000;
 const USER_ACTIVITY = 60000;
 const SESSION_ACTIVE = true;
-const EMOJY_ARRAY = array(
+const EMOJY_ARRAY = [
     ':|' => 'mellow',
     ':-o' => 'ohmy',
     ';)' => 'wink',
@@ -11,4 +11,4 @@ const EMOJY_ARRAY = array(
     '8)' => 'cool',
     ':)' => 'smile',
     ':(' => 'sad'
-);
+];

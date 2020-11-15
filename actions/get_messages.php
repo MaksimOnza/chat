@@ -9,9 +9,10 @@ query_select('DELETE FROM message_1 WHERE time_stamp < ?', [1 => $current_time])
 
 $messages = query_select('SELECT * FROM message_1 ORDER BY id DESC');
 
-    //$id_last_message = reset($messages)['id'];
-    //$_POST['id_end_message'] = reset($messages)['id'];
-    //$content = array('messages' => $messages, 'id_end' => $id_last_message);
-
+foreach($messages as &$row){
+    foreach (EMOJY_ARRAY as $key => $value){
+        $row['message'] = str_replace($key, "<img src='media/smilies/{$value}.gif'>", $row['message']);
+    }
+}
 
 print render('chat_messages', ['messages' => $messages]);

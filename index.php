@@ -27,7 +27,8 @@ $list_of_path = array(
 $list_of_exception = array(
     "_data",
     "get_messages",
-    "get_users"
+    "get_users",
+    "send_message"
 );
 
 function run_action($path, $list_of_path): string

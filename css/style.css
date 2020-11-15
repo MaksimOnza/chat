@@ -81,9 +81,17 @@ body{
     background-color: antiquewhite;
     font-size: 10px;
 }
-div #view_message{
+#display_message{
     margin: 5px;
     display: inline-block;
+}
+#view_message{
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #d0fff1;
+}
+#view_date{
+    margin-left: 5px;
     border-radius: 5px;
     border: 2px solid antiquewhite;
 }
