@@ -41,6 +41,7 @@
         <input id="s_btn" class="btn btn-outline-secondary btn-light" type="button" name="send" value="Send"">
     </div>';
 } ?>
+
 <input id="reload_mess" class="_get_mess btn btn-outline-secondary btn-light" type="button" name="send" value="Reload messegaes">
 <?php  print ($_SERVER['PHP_SELF'].' df'); ?>
 
