@@ -30,6 +30,21 @@
             }
         );
 
+        $("#s_input").keyup(function(event){
+            if(event.keyCode == 13){
+                //alert('alert');
+                sendAjaxForm('s_input', '_login', 'index.php?path=send_message');
+                document.getElementById('s_input').innerText = '';
+            }
+        });
+        /*$("#s_input").click(
+            function () {
+                sendAjaxForm('s_input', '_login', 'index.php?path=send_message');
+                document.getElementById('s_input').innerText = '';
+                return false;
+            }
+        );*/
+
         $("#reload_mess").click(
             function () {
                 getUserAjaxForm('index.php?path=get_users');
