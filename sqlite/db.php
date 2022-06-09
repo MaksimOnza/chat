@@ -9,27 +9,33 @@ function open_db()
 function query($query, $bind_values=[]){
     $db = open_db();
     $statemant = $db->prepare($query);
+    
     foreach($bind_values as $key=>$value){
         $statemant->bindValue($key, $value, SQLITE3_TEXT);
     }
+    
     $stmt = $statemant->execute();
     $statemant->close();
-    //return $stmt;
 }
 
 function query_select($query, $bind_values = [])
 {
     $db = open_db();
     $statemant = $db->prepare($query);
+    
     foreach ($bind_values as $key => $value) {
         $statemant->bindValue($key, $value, SQLITE3_TEXT);
     }
+    
     $stmt = $statemant->execute();
     $results = [];
+    
     while ($row = $stmt->fetchArray(1)) {
         $results[] = $row;
     }
+    
     $statemant->close();
+    
     return $results;
 }
 
